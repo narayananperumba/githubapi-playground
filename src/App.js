@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   details: {
     display: 'flex',
     flexDirection: 'column',
+    maxWidth: 475,
   },
   bullet: {
     display: 'inline-block',
@@ -131,7 +132,7 @@ function App() {
     fetch(`https://api.github.com/search/repositories?q="${searchInput}"`, {
       method: 'GET',
       headers: {
-        'Accept': 'application/vnd.github.mercy-preview+json',
+        'Accept': 'application/vnd.github.v3+json',
       },
     })
       .then(response => response.json())
@@ -188,21 +189,22 @@ function App() {
                   <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                       <span style={{ textTransform: 'capitalize' }}>{res.name} </span> ({res.full_name})
-                </Typography>
+                    </Typography>
                     <Typography variant="h5" component="h2">
                       {res.name}
                     </Typography>
                     <Typography className={classes.pos} color="textSecondary">
                       {res.language}
                     </Typography>
-                    <Typography variant="body2" component="p">
+                    <Typography noWrap variant="body2" component="p" color="textPrimary">
                       {res.description}
-                      <br />
-                  Stargazers: {res.stargazers_count}
+                    </Typography>
+                    <Typography variant="body2" component="p" color="textSecondary">
+                      Stargazers: {res.stargazers_count}
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button href={res.owner.html_url} rel="noopener" target="_blank" color="primary" size="small">Learn More</Button>
+                    <Button href={res.html_url} rel="noopener" target="_blank" color="primary" size="small">Learn More</Button>
                   </CardActions>
                 </div>
                 <a className={classes.avatarLink} href={res.owner.html_url}>
