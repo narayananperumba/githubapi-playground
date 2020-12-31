@@ -32,3 +32,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `Search Repos Screenshot`
 
 ![Screenshot](Screen_Shot_Search_repos.png)
+
+
+### Future improvements could be:
+
+- [ ] Add separate components for "Card", which used to show results
+- [ ] Separate styling css layer
+- [ ] Add more test cases
+- [ ] Error handling or proper client feedback can be added for API failure scenaios
+- [ ] Proper paginations and UI improvements could be added as needed
